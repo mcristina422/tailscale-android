@@ -10,14 +10,21 @@
 	<!-- Disable input emulation on ChromeOS -->
 	<uses-feature android:name="android.hardware.type.pc" android:required="false"/>
 
-	<application android:label="Tailscale" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round"
-		android:name=".App" android:allowBackup="false">
-		<activity android:name="IPNActivity"
+	<application
+		android:label="Tailscale" 
+		android:icon="@mipmap/ic_launcher" 
+		android:roundIcon="@mipmap/ic_launcher_round"
+		android:name=".App" 
+		android:allowBackup="false">
+		<activity 
+			android:name="IPNActivity"
 			android:label="@string/app_name"
 			android:theme="@style/Theme.GioApp"
 			android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden"
 			android:windowSoftInputMode="adjustResize"
-			android:launchMode="singleTask">
+			android:launchMode="singleTask"
+			android:resizeableActivity="true">
+			<meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="maximize" />
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
@@ -48,7 +55,8 @@
 				<data android:mimeType="video/*" />
 			</intent-filter>
 		</activity>
-		<service android:name=".IPNService"
+		<service 
+			android:name=".IPNService"
 			android:permission="android.permission.BIND_VPN_SERVICE">
 			<intent-filter>
 				<action android:name="android.net.VpnService"/>
